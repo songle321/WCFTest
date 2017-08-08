@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MyServiceTest.Code.Calculator" CodeBehind="Service1.svc.cs" Factory="MyServiceTest.Code.MyServiceHostFactory" %>

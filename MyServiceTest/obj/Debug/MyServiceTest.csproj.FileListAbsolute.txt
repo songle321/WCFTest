@@ -1,0 +1,8 @@
+D:\GitTest\MyServiceTest\MyServiceTest\bin\MyServiceTest.dll.config
+D:\GitTest\MyServiceTest\MyServiceTest\bin\MyServiceTest.dll
+D:\GitTest\MyServiceTest\MyServiceTest\bin\MyServiceTest.pdb
+D:\GitTest\MyServiceTest\MyServiceTest\obj\Debug\MyServiceTest.csprojResolveAssemblyReference.cache
+D:\GitTest\MyServiceTest\MyServiceTest\obj\Debug\MyServiceTest.dll
+D:\GitTest\MyServiceTest\MyServiceTest\obj\Debug\MyServiceTest.pdb
+D:\GitTest\MyServiceTest\MyServiceTest\bin\NConcern.dll
+D:\GitTest\MyServiceTest\MyServiceTest\bin\NConcern.xml

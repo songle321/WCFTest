@@ -1,0 +1,789 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NConcern</name>
+    </assembly>
+    <members>
+        <member name="T:NConcern.Advisor">
+            <summary>
+            Advisor.
+            </summary>
+        </member>
+        <member name="T:NConcern.Advisor.Basic">
+            <summary>
+            Basic.
+            </summary>
+        </member>
+        <member name="T:NConcern.Advisor.Basic.IAfter">
+            <summary>
+            Create an advice that runs after the advised method.
+            </summary>
+        </member>
+        <member name="M:NConcern.Advisor.Basic.IAfter.GetHashCode">
+            <summary>
+            GetHashCode.
+            </summary>
+            <returns>HashCode</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Basic.IAfter.ToString">
+            <summary>
+            ToString.
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Basic.IAfter.GetType">
+            <summary>
+            GetType.
+            </summary>
+            <returns>Type</returns>
+        </member>
+        <member name="M:NConcern.Advisor.After(NConcern.Advisor.IBasic)">
+            <summary>
+            After
+            </summary>
+            <param name="basic">Basic</param>
+            <returns>After</returns>
+        </member>
+        <member name="M:NConcern.Advisor.After(NConcern.Advisor.IBasic,System.Action)">
+            <summary>
+            Create an advice that runs after the advised method regardless of its outcome.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.After(NConcern.Advisor.IBasic,System.Action{System.Object,System.Object[]})">
+            <summary>
+            Create an advice that runs after the advised method regardless of its outcome.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked after the advised method : Action(object = [target instance of advised method call], object[] = [boxed arguments used to call advised method])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Returning(NConcern.Advisor.Basic.IAfter,System.Action)">
+            <summary>
+            Create an advice that runs after the advised method only if it completes successfully.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Returning(NConcern.Advisor.Basic.IAfter,System.Action{System.Object,System.Object[]})">
+            <summary>
+            Create an advice that runs after the advised method only if it completes successfully.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked after the advised method : Action(object = [target instance of advised method call], object[] = [boxed arguments used to call advised method])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Returning(NConcern.Advisor.Basic.IAfter,System.Action{System.Object,System.Object[],System.Object})">
+            <summary>
+            Create an advice that runs after the advised method only if it completes successfully.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked after the advised method : Action(object = [target instance of advised method call], object[] = [boxed arguments used to call advised method], object = [return value (null if return type is void)])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Around(NConcern.Advisor.IBasic,System.Action{System.Action})">
+            <summary>
+            Create an advice that runs before and after the advised method.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Action(advised methd body) to invoke instead of advised method : Action(Action = [delegate to invoke advised method body])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Around(NConcern.Advisor.IBasic,System.Action{System.Object,System.Object[],System.Action})">
+            <summary>
+            Create an advice that runs before and after the advised method.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked instead of the advised method : Action(object = [target instance of advised method call], object[] = [boxed arguments used to call advised method], Action = [delegate that invokes the advised method body])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Around(NConcern.Advisor.IBasic,System.Func{System.Object,System.Object[],System.Func{System.Object},System.Object})">
+            <summary>
+            Create an advice that runs before and after the advised method.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked instead of the advised method : Func(object = [target instance of advised method call], object[] = [boxed arguments used to call advised method], Func() = [delegate that invokes advised method body (return boxed return value or null if return type is void)]) return boxed return value (null if return type is void)</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Around``1(NConcern.Advisor.IBasic)">
+            <summary>
+            Create an advice that runs before and after the advised method.
+            </summary>
+            <typeparam name="T">Resource to create before and dispose after method execution</typeparam>
+            <param name="basic">Basic</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Before(NConcern.Advisor.IBasic,System.Action)">
+            <summary>
+            Create an advice that runs before the advised method.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked before the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Before(NConcern.Advisor.IBasic,System.Action{System.Object,System.Object[]})">
+            <summary>
+            Create an advice that runs before the advised method.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked before the advised method : Action(object = [target instance of advised method call], object[] = [boxed arguments used to call advised method])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="T:NConcern.Advisor.IBasic">
+            <summary>
+            Basic.
+            </summary>
+        </member>
+        <member name="M:NConcern.Advisor.IBasic.GetHashCode">
+            <summary>
+            GetHashCode.
+            </summary>
+            <returns>HashCode</returns>
+        </member>
+        <member name="M:NConcern.Advisor.IBasic.ToString">
+            <summary>
+            ToString.
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:NConcern.Advisor.IBasic.GetType">
+            <summary>
+            GetType.
+            </summary>
+            <returns>Type</returns>
+        </member>
+        <member name="T:NConcern.Advisor.Linq">
+            <summary>
+            Linq.
+            </summary>
+        </member>
+        <member name="T:NConcern.Advisor.Linq.IAfter">
+            <summary>
+            Create an advice that runs after the advised method.
+            </summary>
+        </member>
+        <member name="M:NConcern.Advisor.Linq.IAfter.GetHashCode">
+            <summary>
+            GetHashCode.
+            </summary>
+            <returns>HashCode</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Linq.IAfter.ToString">
+            <summary>
+            ToString.
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Linq.IAfter.GetType">
+            <summary>
+            GetType.
+            </summary>
+            <returns>Type</returns>
+        </member>
+        <member name="M:NConcern.Advisor.After(NConcern.Advisor.ILinq)">
+            <summary>
+            After
+            </summary>
+            <param name="linq">Linq</param>
+            <returns>After</returns>
+        </member>
+        <member name="M:NConcern.Advisor.After(NConcern.Advisor.ILinq,System.Linq.Expressions.Expression)">
+            <summary>
+            Create an advice that runs after the advised method regardless of its outcome.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice"></param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.After(NConcern.Advisor.ILinq,System.Func{System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs after the advised method regardless of its outcome.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked after the advised method : Func(Expression = [expression of target instance of advised method call], IEnumerable(Expression) = [enumerable of expression of argument used to call advised method]) return an expression(void) of code to invoke after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Returning(NConcern.Advisor.Linq.IAfter,System.Linq.Expressions.Expression)">
+            <summary>
+            Create an advice that runs after the advised method only if it completes successfully.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Expression (void) of code to be invoked after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Returning(NConcern.Advisor.Linq.IAfter,System.Func{System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs after the advised method only if it completes successfully.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked after the advised method : Func(Expression = [expression of target instance of advised method call], IEnumerable(Expression) = [enumerable of expression of argument used to call advised method]) return an expression(void) of code to invoke after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Returning(NConcern.Advisor.Linq.IAfter,System.Func{System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs after the advised method only if it completes successfully.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked after the advised method : Func(Expression = [expression of target instance of advised method call], IEnumerable(Expression) = [enumerable of expression of argument used to call advised method], Expression = [expression of return value (null if return type is void)]) return an expression(void) of code to invoke after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Throwing(NConcern.Advisor.Linq.IAfter,System.Linq.Expressions.Expression)">
+            <summary>
+            Create an advice that runs after the advised method only if it exits by throwing an exception.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Expression (void) of code to invoke after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Throwing(NConcern.Advisor.Linq.IAfter,System.Func{System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs after the advised method only if it exits by throwing an exception.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked after the advised method : Func(Expression = [expression of target instance of advised method call], IEnumerable(Expression) = [enumerable of expression of argument used to call advised method]) return an expression(void) of code to invoke after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Throwing(NConcern.Advisor.Linq.IAfter,System.Func{System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs after the advised method only if it exits by throwing an exception.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked after the advised method : Func(Expression = [expression of target instance of advised method call], IEnumerable(Expression) = [enumerable of expression of argument used to call advised method], Expression = [expression of exception]) return an expression(void) of code to invoke after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Around(NConcern.Advisor.ILinq,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs before and after the advised method.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked instaed of the advised method : Func(Expression = [expression of advised method body]) return an expression to invoke instead of the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Around(NConcern.Advisor.ILinq,System.Func{System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs before and after the advised method.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked instaed of the advised method : Func(Expression = [expression of target instance of advised method call], IEnumerable(Expression) = [enumerable of expression of argument used to call advised method]) return an expression to invoke instead of the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Around(NConcern.Advisor.ILinq,System.Func{System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs before and after the advised method.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked instaed of the advised method : Func(Expression = [expression of target instance of advised method call], IEnumerable(Expression) = [enumerable of expression of argument used to call advised method], Expression = [expression of advised method body]) return an expression to invoke instead of the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Before(NConcern.Advisor.ILinq,System.Linq.Expressions.Expression)">
+            <summary>
+            Create an advice that runs before the advised method.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Expression of code to be invoked before the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Before(NConcern.Advisor.ILinq,System.Func{System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Create an advice that runs before the advised method.
+            </summary>
+            <param name="linq">Linq</param>
+            <param name="advice">Delegate used to produce an expression of code to be invoked before the advised method : Func(Expression = [expression of target instance of advised method call], IEnumerable(Expression) = [enumerable of expression of argument used to call advised method]) return an expression(void) of code to invoke before the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="T:NConcern.Advisor.ILinq">
+            <summary>
+            Linq.
+            </summary>
+        </member>
+        <member name="M:NConcern.Advisor.ILinq.GetHashCode">
+            <summary>
+            GetHashCode.
+            </summary>
+            <returns>HashCode</returns>
+        </member>
+        <member name="M:NConcern.Advisor.ILinq.ToString">
+            <summary>
+            ToString.
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:NConcern.Advisor.ILinq.GetType">
+            <summary>
+            GetType.
+            </summary>
+            <returns>Type</returns>
+        </member>
+        <member name="T:NConcern.Advisor.Reflection">
+            <summary>
+            Reflection.
+            </summary>
+        </member>
+        <member name="T:NConcern.Advisor.Reflection.IAfter">
+            <summary>
+            Create an advice that runs after the advised method.
+            </summary>
+        </member>
+        <member name="M:NConcern.Advisor.Reflection.IAfter.GetHashCode">
+            <summary>
+            GetHashCode.
+            </summary>
+            <returns>HashCode</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Reflection.IAfter.ToString">
+            <summary>
+            ToString.
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Reflection.IAfter.GetType">
+            <summary>
+            GetType.
+            </summary>
+            <returns>Type</returns>
+        </member>
+        <member name="M:NConcern.Advisor.After(NConcern.Advisor.IReflection)">
+            <summary>
+            After
+            </summary>
+            <param name="reflection">Reflection</param>
+            <returns>After</returns>
+        </member>
+        <member name="M:NConcern.Advisor.After(NConcern.Advisor.IReflection,System.Action{System.Reflection.Emit.ILGenerator})">
+            <summary>
+            Create an advice that runs after the advised method regardless of its outcome.
+            </summary>
+            <param name="reflection">Reflection</param>
+            <param name="advice">Delegate used to emit code to be invoked after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Returning(NConcern.Advisor.Reflection.IAfter,System.Action{System.Reflection.Emit.ILGenerator})">
+            <summary>
+            Create an advice that runs after the advised method only if it completes successfully.
+            </summary>
+            <param name="reflection">Reflection</param>
+            <param name="advice">Delegate used to emit code to be invoked after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Throwing(NConcern.Advisor.Reflection.IAfter,System.Action{System.Reflection.Emit.ILGenerator})">
+            <summary>
+            Create an advice that runs after the advised method only if it exits by throwing an exception.
+            </summary>
+            <param name="reflection">Reflection</param>
+            <param name="advice">Delegate used to emit code to be invoked after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Around(NConcern.Advisor.IReflection,System.Action{System.Reflection.Emit.ILGenerator,System.Action})">
+            <summary>
+            Create an advice that runs before and after the advised method.
+            </summary>
+            <param name="reflection">Reflection</param>
+            <param name="advice">Delegate used to emit code to be invoked instead of the advised method : Action(Action = [delegate used to produce advised method body])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Before(NConcern.Advisor.IReflection,System.Action{System.Reflection.Emit.ILGenerator})">
+            <summary>
+            Create an advice that runs before the advised method.
+            </summary>
+            <param name="reflection">Reflection</param>
+            <param name="advice">Delegate used to emit code to be invoked before the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="T:NConcern.Advisor.IReflection">
+            <summary>
+            Reflection.
+            </summary>
+        </member>
+        <member name="M:NConcern.Advisor.IReflection.GetHashCode">
+            <summary>
+            GetHashCode.
+            </summary>
+            <returns>HashCode</returns>
+        </member>
+        <member name="M:NConcern.Advisor.IReflection.ToString">
+            <summary>
+            ToString.
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:NConcern.Advisor.IReflection.GetType">
+            <summary>
+            GetType.
+            </summary>
+            <returns>Type</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Throwing(NConcern.Advisor.Basic.IAfter,System.Action)">
+            <summary>
+            Create an advice that runs after the advised method only if it exits by throwing an exception.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked after the advised method</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Throwing(NConcern.Advisor.Basic.IAfter,System.Action{System.Object,System.Object[]})">
+            <summary>
+            Create an advice that runs after the advised method only if it exits by throwing an exception.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked after the advised method : Action(object = [target instance of advised method call], object[] = [boxed arguments used to call advised method])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Throwing(NConcern.Advisor.Basic.IAfter,System.Action{System.Object,System.Object[],System.Exception})">
+            <summary>
+            Create an advice that runs after the advised method only if it exits by throwing an exception.
+            </summary>
+            <param name="basic">Basic</param>
+            <param name="advice">Delegate to be invoked after the advised method : Action(object = [target instance of advised method call], object[] = [boxed arguments used to call advised method], Exception = [exception thrown])</param>
+            <returns>Advice</returns>
+        </member>
+        <member name="M:NConcern.Advisor.Equals(System.Object,System.Object)">
+            <summary>
+            Equals.
+            </summary>
+            <param name="left">Left</param>
+            <param name="right">Right</param>
+            <returns>Equals</returns>
+        </member>
+        <member name="M:NConcern.Advisor.ReferenceEquals(System.Object,System.Object)">
+            <summary>
+            ReferenceEquals.
+            </summary>
+            <param name="left">Left</param>
+            <param name="right">Right</param>
+            <returns>Equals</returns>
+        </member>
+        <member name="T:NConcern.Advice">
+            <summary>
+            Advice.
+            </summary>
+        </member>
+        <member name="F:NConcern.Advice.Basic">
+            <summary>
+            Basic.
+            </summary>
+        </member>
+        <member name="F:NConcern.Advice.Linq">
+            <summary>
+            Linq.
+            </summary>
+        </member>
+        <member name="F:NConcern.Advice.Reflection">
+            <summary>
+            Reflection.
+            </summary>
+        </member>
+        <member name="M:NConcern.Advice.Equals(System.Object,System.Object)">
+            <summary>
+            Equals.
+            </summary>
+            <param name="left">Left</param>
+            <param name="right">Right</param>
+            <returns>Equals</returns>
+        </member>
+        <member name="M:NConcern.Advice.ReferenceEquals(System.Object,System.Object)">
+            <summary>
+            ReferenceEquals.
+            </summary>
+            <param name="left">Left</param>
+            <param name="right">Right</param>
+            <returns>Equals</returns>
+        </member>
+        <member name="M:NConcern.Advice.#ctor(System.Func{System.Reflection.MethodBase,System.IntPtr,System.Reflection.MethodInfo})">
+            <summary>
+            Create an advice, a way to decorate.
+            </summary>
+            <param name="decorate">Delegate use to decorate a method : Func(MethodBase = [base method to decorate], IntPtr = [pointer to base method]) return replacing method</param>
+        </member>
+        <member name="M:NConcern.Advice.#ctor(System.Func{System.Reflection.MethodBase,System.Reflection.MethodInfo})">
+            <summary>
+            Create an advice, a way to decorate.
+            </summary>
+            <param name="decorate">Delegate use to decorate a method : Func(MethodBase = [base method to decorate]) return replacing method</param>
+        </member>
+        <member name="M:NConcern.Advice.#ctor(System.Reflection.MethodInfo)">
+            <summary>
+            Create an advice with a specific replacing method.
+            </summary>
+            <param name="method">Replacing method</param>
+        </member>
+        <member name="M:NConcern.Advice.Decorate(System.Reflection.MethodBase,System.IntPtr)">
+            <summary>
+            Decorate a method for a specific concern.
+            </summary>
+            <param name="method">Base method to decorate</param>
+            <param name="pointer">Pointer to base method</param>
+            <returns>Replacing method</returns>
+        </member>
+        <member name="T:NConcern.Aspect">
+            <summary>
+            Manage weaving process.
+            </summary>
+        </member>
+        <member name="M:NConcern.Aspect.Lookup">
+            <summary>
+            Get all methods managed by at least one aspect.
+            </summary>
+            <returns>Enumerable of methods managed by at least one aspect</returns>
+        </member>
+        <member name="M:NConcern.Aspect.Lookup``1">
+            <summary>
+            Get all methods managed by the aspect.
+            </summary>
+            <typeparam name="T">Aspect</typeparam>
+            <returns>Enumerable of methods managed by the aspect</returns>
+        </member>
+        <member name="M:NConcern.Aspect.Enumerate(System.Reflection.MethodBase)">
+            <summary>
+            Get all aspects woven on a method.
+            </summary>
+            <param name="method">Method</param>
+            <returns>Enumerable of aspects woven in the method</returns>
+        </member>
+        <member name="M:NConcern.Aspect.Weave``1(System.Reflection.MethodBase)">
+            <summary>
+            Weave an aspect on a specific method.
+            </summary>
+            <typeparam name="T">Aspect</typeparam>
+            <param name="method">Method</param>
+        </member>
+        <member name="M:NConcern.Aspect.Weave``1(System.Func{System.Reflection.MethodBase,System.Boolean})">
+            <summary>
+            Weave an aspect on methods matching with a specific pattern
+            </summary>
+            <typeparam name="T">Aspect</typeparam>
+            <param name="pattern">Pattern</param>
+        </member>
+        <member name="M:NConcern.Aspect.Weave``1(System.Type)">
+            <summary>
+            Weave an aspect on methods defined as [type] or defined in [type].
+            </summary>
+            <typeparam name="T">Aspect</typeparam>
+            <param name="type">Type</param>
+        </member>
+        <member name="M:NConcern.Aspect.Release(System.Reflection.MethodBase)">
+            <summary>
+            Release all aspects from a specific method.
+            </summary>
+            <param name="method">Method</param>
+        </member>
+        <member name="M:NConcern.Aspect.Release(System.Func{System.Reflection.MethodBase,System.Boolean})">
+            <summary>
+            Release all aspects from methods matching with a specific pettern.
+            </summary>
+            <param name="pattern">Pattern</param>
+        </member>
+        <member name="M:NConcern.Aspect.Release(System.Type)">
+            <summary>
+            Release all aspects from methods defined as [type] or defined in [type].
+            </summary>
+            <param name="type">Custom attribute type</param>
+        </member>
+        <member name="M:NConcern.Aspect.Release``1">
+            <summary>
+            Release an aspect from a specific method.
+            </summary>
+            <typeparam name="T">Aspect</typeparam>
+        </member>
+        <member name="M:NConcern.Aspect.Release``1(System.Reflection.MethodBase)">
+            <summary>
+            Release an aspect from a specific method.
+            </summary>
+            <typeparam name="T">Aspect</typeparam>
+            <param name="method">Method</param>
+        </member>
+        <member name="M:NConcern.Aspect.Release``1(System.Func{System.Reflection.MethodBase,System.Boolean})">
+            <summary>
+            Release an aspect from methods matching with a specific pattern.
+            </summary>
+            <typeparam name="T">Aspect</typeparam>
+            <param name="pattern">Pattern</param>
+        </member>
+        <member name="M:NConcern.Aspect.Release``1(System.Type)">
+            <summary>
+            Release an aspect from methods defined as [type] or defined in [type].
+            </summary>
+            <typeparam name="T">Aspect</typeparam>
+            <param name="type">Custom attribute type</param>
+        </member>
+        <member name="T:NConcern.IAdvice">
+            <summary>
+            Advice : a way to decorate a method for a specific concern
+            </summary>
+        </member>
+        <member name="M:NConcern.IAdvice.Decorate(System.Reflection.MethodBase,System.IntPtr)">
+            <summary>
+            Decorate a method for a specific concern.
+            </summary>
+            <param name="method">Base method to decorate</param>
+            <param name="pointer">Pointer to base method</param>
+            <returns>Replacing method</returns>
+        </member>
+        <member name="T:NConcern.IAspect">
+            <summary>
+            Aspect : provide advice(s) for method.
+            </summary>
+        </member>
+        <member name="M:NConcern.IAspect.Advise(System.Reflection.MethodBase)">
+            <summary>
+            Advise a method.
+            </summary>
+            <param name="method">Method to advise</param>
+            <returns>Enumerable of advices</returns>
+        </member>
+        <member name="T:System.Reflection.Argument`1">
+            <summary>
+            Argument.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+        </member>
+        <member name="F:System.Reflection.Argument`1.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="T:System.Reflection.Instruction">
+            <summary>
+            CIL Instruction.
+            </summary>
+        </member>
+        <member name="F:System.Reflection.Instruction.Code">
+            <summary>
+            Code.
+            </summary>
+        </member>
+        <member name="F:System.Reflection.Instruction.Type">
+            <summary>
+            Type.
+            </summary>
+        </member>
+        <member name="F:System.Reflection.Instruction.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.Instruction.#ctor(System.Reflection.Emit.OpCode)">
+            <summary>
+            Create an instruction without value.
+            </summary>
+            <param name="code"></param>
+        </member>
+        <member name="M:System.Reflection.Instruction.ToString">
+            <summary>
+            Instruction illustration.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reflection.Instruction`1">
+            <summary>
+            Instruction
+            </summary>
+            <typeparam name="T">Type</typeparam>
+        </member>
+        <member name="F:System.Reflection.Instruction`1.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.Instruction`1.#ctor(System.Reflection.Emit.OpCode,`0)">
+            <summary>
+            Create an instruction.
+            </summary>
+            <param name="code">Code</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="T:System.Reflection.Metadata">
+            <summary>
+            Metadata.
+            </summary>
+        </member>
+        <member name="F:System.Reflection.Metadata.Void">
+            <summary>
+            Void
+            </summary>
+        </member>
+        <member name="M:System.Reflection.Metadata.Constructor``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Obtain constructor from linq expression.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Constructor</returns>
+        </member>
+        <member name="M:System.Reflection.Metadata.Field``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Obtain static field from linq expression.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Field</returns>
+        </member>
+        <member name="M:System.Reflection.Metadata.Property``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Obtain static property from linq expression.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="expression">Expression</param>
+            <returns>PropertyInfo</returns>
+        </member>
+        <member name="M:System.Reflection.Metadata.Method(System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            Obtain static ethod from linq expression.
+            </summary>
+            <param name="expression">Expression</param>
+            <returns>Method</returns>
+        </member>
+        <member name="M:System.Reflection.Metadata.Method``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Obtain static method from linq expression.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Method</returns>
+        </member>
+        <member name="T:System.Reflection.Metadata`1">
+            <summary>
+            Metadata
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:System.Reflection.Metadata`1.Type">
+            <summary>
+            Type.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.Metadata`1.Field``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Obtain field from linq expression.
+            </summary>
+            <typeparam name="X">Type</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Field</returns>
+        </member>
+        <member name="M:System.Reflection.Metadata`1.Property``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Obtain property from linq expression.
+            </summary>
+            <typeparam name="X">Type</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Property</returns>
+        </member>
+        <member name="M:System.Reflection.Metadata`1.Method(System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+            Obtain method from linq expression.
+            </summary>
+            <param name="expression">Expression</param>
+            <returns>Method</returns>
+        </member>
+        <member name="M:System.Reflection.Metadata`1.Method``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Obtain method from linq expression.
+            </summary>
+            <typeparam name="X">Type</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Method</returns>
+        </member>
+    </members>
+</doc>
