@@ -6,3 +6,11 @@ D:\GitTest\MyServiceTest\MyServiceTest\obj\Debug\MyServiceTest.dll
 D:\GitTest\MyServiceTest\MyServiceTest\obj\Debug\MyServiceTest.pdb
 D:\GitTest\MyServiceTest\MyServiceTest\bin\NConcern.dll
 D:\GitTest\MyServiceTest\MyServiceTest\bin\NConcern.xml
+G:\GitRepos\WCFTest\MyServiceTest\bin\MyServiceTest.dll.config
+G:\GitRepos\WCFTest\MyServiceTest\bin\MyServiceTest.dll
+G:\GitRepos\WCFTest\MyServiceTest\bin\MyServiceTest.pdb
+G:\GitRepos\WCFTest\MyServiceTest\bin\NConcern.dll
+G:\GitRepos\WCFTest\MyServiceTest\bin\NConcern.xml
+G:\GitRepos\WCFTest\MyServiceTest\obj\Debug\MyServiceTest.csprojResolveAssemblyReference.cache
+G:\GitRepos\WCFTest\MyServiceTest\obj\Debug\MyServiceTest.dll
+G:\GitRepos\WCFTest\MyServiceTest\obj\Debug\MyServiceTest.pdb

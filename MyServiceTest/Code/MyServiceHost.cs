@@ -13,7 +13,7 @@ namespace MyServiceTest.Code
     {
         public MyServiceHost(Type serviceType, params Uri[] baseAddresses) : base(serviceType, baseAddresses)
         {
-          
+
         }
         protected override void OnOpening()
         {
@@ -26,9 +26,9 @@ namespace MyServiceTest.Code
                 this.Description.Behaviors.Add(myServiceBehavior);
             }
 
-            var _operationContractJoinpoint = new Func<MethodBase, bool>(_Method => _Method.DeclaringType.FullName.StartsWith("MyServiceTest") && _Method.IsDefined(typeof(OperationContractAttribute), true));
-            //weave logging for all operation contract
-            Aspect.Weave<Logging>(_operationContractJoinpoint);
+            //var _operationContractJoinpoint = new Func<MethodBase, bool>(_Method => _Method.DeclaringType.FullName.StartsWith("MyServiceTest") && _Method.IsDefined(typeof(OperationContractAttribute), true));
+            ////weave logging for all operation contract
+            //Aspect.Weave<Logging>(_operationContractJoinpoint);
         }
         protected override void OnOpened()
         {
