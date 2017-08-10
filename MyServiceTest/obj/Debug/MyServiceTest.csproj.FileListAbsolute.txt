@@ -14,3 +14,13 @@ G:\GitRepos\WCFTest\MyServiceTest\bin\NConcern.xml
 G:\GitRepos\WCFTest\MyServiceTest\obj\Debug\MyServiceTest.csprojResolveAssemblyReference.cache
 G:\GitRepos\WCFTest\MyServiceTest\obj\Debug\MyServiceTest.dll
 G:\GitRepos\WCFTest\MyServiceTest\obj\Debug\MyServiceTest.pdb
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Autofac.dll
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Biz.dll
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Model.dll
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Biz.pdb
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Model.pdb
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Autofac.xml
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Autofac.Integration.Wcf.dll
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Autofac.Integration.Wcf.xml
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Dao.dll
+D:\GitTest\MyServiceTest\MyServiceTest\bin\Dao.pdb

@@ -42,6 +42,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Wcf, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Wcf.4.0.0\lib\net45\Autofac.Integration.Wcf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NConcern, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7ec21d9f1f8dcaf9, processorArchitecture=MSIL">
       <HintPath>..\packages\NConcern.4.1.0\lib\NConcern.dll</HintPath>
@@ -67,15 +73,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="MyPersonService.svc" />
+    <Content Include="PersonService.svc" />
+    <Content Include="MyService.svc" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\ICalculator.cs" />
+    <Compile Include="Code\ErrorOperationBehavior.cs" />
+    <Compile Include="Code\ICalculatorService.cs" />
+    <Compile Include="Code\MyOperationInvoker.cs" />
+    <Compile Include="Code\PersionService.cs" />
+    <Compile Include="Code\IPersionService.cs" />
     <Compile Include="Code\Logging.cs" />
     <Compile Include="Code\MyServiceBehavior.cs" />
     <Compile Include="Code\MyServiceHost.cs" />
     <Compile Include="Code\MyServiceHostFactory.cs" />
+    <Compile Include="Code\PersonService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -92,6 +106,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Biz\Biz.csproj">
+      <Project>{aa1b137b-40d2-4cef-ae2b-4bfcbf5c8d35}</Project>
+      <Name>Biz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{a3c4fd33-dcb4-454d-8b48-768882ccc241}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac.Integration.Wcf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace MyServiceTest.Code
 {
-    public class MyServiceHostFactory : ServiceHostFactory
+    public class MyServiceHostFactory : AutofacHostFactory //ServiceHostFactory
     {
         //MyServiceHost
         // SVC中的constructorString， Service="MyServiceTest.Service1"
@@ -20,6 +21,17 @@ namespace MyServiceTest.Code
         protected override ServiceHost CreateServiceHost(Type serviceType, Uri[] baseAddresses)
         {
             return new MyServiceHost(serviceType, baseAddresses);
+        }
+
+        protected override ServiceHost CreateSingletonServiceHost(object singletonInstance, Uri[] baseAddresses)
+        {
+            if (singletonInstance == null)
+                throw new ArgumentNullException("singletonInstance");
+
+            if (baseAddresses == null)
+                throw new ArgumentNullException("baseAddresses");
+
+            return new ServiceHost(singletonInstance, baseAddresses);
         }
     }
 }
