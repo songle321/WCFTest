@@ -18,16 +18,19 @@ namespace Utility
         }
         static ContainerFactory()
         {
-            var dataAccess = Assembly.GetExecutingAssembly();
-
+            //var dataAccess = Assembly.GetExecutingAssembly();
             var builder = new ContainerBuilder();
             var daoAssembly = Assembly.LoadFile("DTO");
             var bizAssembly = Assembly.LoadFile("Biz");
             var serviceAssemby = Assembly.LoadFile("MyServiceTest");
-            builder.RegisterAssemblyTypes(daoAssembly).Where(t => t.Name.EndsWith("Dao")).AsImplementedInterfaces().AsSelf();
-            builder.RegisterAssemblyTypes(bizAssembly).Where(t => t.Name.EndsWith("Biz")).AsImplementedInterfaces().AsSelf();
-            builder.RegisterAssemblyTypes(serviceAssemby).Where(t => t.Name.EndsWith("Biz")).AsImplementedInterfaces().AsSelf();
+            builder.RegisterAssemblyTypes(daoAssembly).Where(t => t.Name.EndsWith("Dao")).AsImplementedInterfaces().AsSelf().SingleInstance();
+            builder.RegisterAssemblyTypes(bizAssembly).Where(t => t.Name.EndsWith("Biz")).AsImplementedInterfaces().AsSelf().SingleInstance();
+            builder.RegisterAssemblyTypes(serviceAssemby).Where(t => t.Name.EndsWith("Biz")).AsImplementedInterfaces().AsSelf().SingleInstance();
             AutofacHostFactory.Container = _ioccontainer = builder.Build();
+        }
+        public static IContainer GetContainer()
+        {
+            return _ioccontainer;
         }
 
     }

@@ -10,7 +10,7 @@ using System.Web;
 
 namespace MyServiceTest.Code
 {
-    public class MyServiceBehavior : IServiceBehavior
+    public class MyServiceBehaviorAttribute : Attribute, IServiceBehavior
     {
         public void AddBindingParameters(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase, Collection<ServiceEndpoint> endpoints, BindingParameterCollection bindingParameters)
         {
@@ -19,7 +19,18 @@ namespace MyServiceTest.Code
 
         public void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
         {
-          
+            foreach (ServiceEndpoint endpoint in serviceDescription.Endpoints)
+            {
+                
+                foreach (OperationDescription operation in endpoint.Contract.Operations)
+                {
+                    if (operation.Behaviors.Find<ErrorOperationBehaviorAttribute>() == null)
+                    {
+                        IOperationBehavior behavior = new ErrorOperationBehaviorAttribute();
+                        operation.Behaviors.Add(behavior);
+                    }
+                }
+            }
         }
 
         public void Validate(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)

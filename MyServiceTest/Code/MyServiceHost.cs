@@ -19,10 +19,10 @@ namespace MyServiceTest.Code
         {
             base.OnOpening();
             Debug.WriteLine("OnOpening");
-            var myServiceBehavior = this.Description.Behaviors.Find<MyServiceBehavior>();
+            var myServiceBehavior = this.Description.Behaviors.Find<MyServiceBehaviorAttribute>();
             if (myServiceBehavior == null)
             {
-                myServiceBehavior = new MyServiceBehavior();
+                myServiceBehavior = new MyServiceBehaviorAttribute();
                 this.Description.Behaviors.Add(myServiceBehavior);
             }
 

@@ -73,12 +73,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="MyPersonService.svc" />
     <Content Include="PersonService.svc" />
+    <Content Include="MyService.svc" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\ErrorOperationBehavior.cs" />
     <Compile Include="Code\ICalculatorService.cs" />
+    <Compile Include="Code\MyOperationInvoker.cs" />
     <Compile Include="Code\PersionService.cs" />
     <Compile Include="Code\IPersionService.cs" />
     <Compile Include="Code\Logging.cs" />
