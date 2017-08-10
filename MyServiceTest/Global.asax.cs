@@ -20,39 +20,44 @@ namespace MyServiceTest
         protected void Application_Start(object sender, EventArgs e)
         {
             #region LogWeave
-            var _operationContractJoinpoint = new Func<MethodBase, bool>
-                   (_Method =>
-                   {
-                       var objType = _Method.DeclaringType;
-                       var assemblyName = objType.Assembly.GetName();
-                       if (!assemblyName.Name.StartsWith("MyServiceTest", StringComparison.OrdinalIgnoreCase))
-                       {
-                           return false;
-                       }
-                       var flag = _Method.IsDefined(typeof(OperationContractAttribute), true);
-                       if (flag)
-                           return flag;
-                       var interfaces = objType.GetInterfaces();
-                       foreach (Type item in interfaces)
-                       {
-                           InterfaceMapping map = objType.GetInterfaceMap(item);
-                           if (map.TargetMethods == null) continue;
-                           var index = Array.IndexOf(map.TargetMethods, _Method);
-                           if (index == -1) continue;
-                           MethodBase iMethod = map.InterfaceMethods[index];
-                           flag = iMethod.IsDefined(typeof(OperationContractAttribute), true);
-                           if (flag) break;
-                       }
-                       if (flag)
-                       {
-                           Debug.WriteLine("注册" + _Method.DeclaringType + "." + _Method.Name);
-                       }
-                       return flag;
-                   }
-               );
-            //weave logging for all operation contract
-            Aspect.Weave<Logging>(_operationContractJoinpoint);
+            //var _operationContractJoinpoint = new Func<MethodBase, bool>
+            //       (_Method =>
+            //       {
+            //           var objType = _Method.DeclaringType;
+            //           var assemblyName = objType.Assembly.GetName();
+            //           if (!assemblyName.Name.StartsWith("MyServiceTest", StringComparison.OrdinalIgnoreCase))
+            //           {
+            //               return false;
+            //           }
+            //           var flag = _Method.IsDefined(typeof(OperationContractAttribute), true);
+            //           if (flag)
+            //               return flag;
+            //           var interfaces = objType.GetInterfaces();
+            //           foreach (Type item in interfaces)
+            //           {
+            //               InterfaceMapping map = objType.GetInterfaceMap(item);
+            //               if (map.TargetMethods == null) continue;
+            //               var index = Array.IndexOf(map.TargetMethods, _Method);
+            //               if (index == -1) continue;
+            //               MethodBase iMethod = map.InterfaceMethods[index];
+            //               flag = iMethod.IsDefined(typeof(OperationContractAttribute), true);
+            //               if (flag) break;
+            //           }
+            //           if (flag)
+            //           {
+            //               Debug.WriteLine("注册" + _Method.DeclaringType + "." + _Method.Name);
+            //           }
+            //           return flag;
+            //       }
+            //   );
+            ////weave logging for all operation contract
+            //Aspect.Weave<Logging>(_operationContractJoinpoint);
             #endregion
+            Aspect.Weave<Logging>(Logging.Condition);
+            Aspect.Weave<TranCtrl>(TranCtrl.Condition);
+
+            //  WeaveFactory.Weave<Logging>();
+            // WeaveFactory.Weave<TranCtrl>();
             #region container
 
             var builder = new ContainerBuilder();

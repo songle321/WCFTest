@@ -13,6 +13,6 @@ namespace Dao.Interf
         Person Insert(Person entity);
         Person Modify(Person entity);
         Person GetEntityByid(int id);
-
+        bool Modifies(List<Person> persons);
     }
 }

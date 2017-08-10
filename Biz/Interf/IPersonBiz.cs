@@ -13,5 +13,7 @@ namespace Biz.Interf
         Person Insert(Person entity);
         Person Modify(Person entity);
         Person GetEntityByid(int id);
+
+        bool TranModify(List<Person> persons);
     }
 }

@@ -30,6 +30,11 @@ namespace MyServiceTest.Code
             return this._biz.List();
         }
 
+        public bool Modifies(List<Person> ps)
+        {
+            return this._biz.TranModify(ps);
+        }
+
         public Person Modify(Person entity)
         {
             return this._biz.Modify(entity);

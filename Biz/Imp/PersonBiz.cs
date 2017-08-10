@@ -35,5 +35,10 @@ namespace Biz
         {
             return this._dao.Modify(entity);
         }
+
+        public bool TranModify(List<Person> persons)
+        {
+            return this._dao.Modifies(persons);
+        }
     }
 }

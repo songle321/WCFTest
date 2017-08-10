@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Code\ErrorOperationBehavior.cs" />
     <Compile Include="Code\ICalculatorService.cs" />
+    <Compile Include="Code\IWeaveCondition.cs" />
     <Compile Include="Code\MyOperationInvoker.cs" />
     <Compile Include="Code\PersionService.cs" />
     <Compile Include="Code\IPersionService.cs" />
@@ -89,7 +90,9 @@
     <Compile Include="Code\MyServiceBehavior.cs" />
     <Compile Include="Code\MyServiceHost.cs" />
     <Compile Include="Code\MyServiceHostFactory.cs" />
-    <Compile Include="Code\PersonService.cs" />
+    <Compile Include="Code\IPersonService.cs" />
+    <Compile Include="Code\WeaveBase.cs" />
+    <Compile Include="Code\WeaveFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

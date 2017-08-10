@@ -19,5 +19,9 @@ namespace MyServiceTest.Code
         Person Modify(Person entity);
         [OperationContract]
         Person GetEntityByid(int id);
+        [OperationContract]
+        bool Modifies(List<Person> ps);
+
+
     }
 }

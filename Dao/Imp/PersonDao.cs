@@ -10,8 +10,11 @@ namespace Dao.Imp
 {
     public class PersonDao : IPersonDao
     {
-        private static List<Person> _list = new List<Person>();
-        private static int _id = 1;
+        private static List<Person> _list = new List<Person>() {
+new Person { FirstName="张三",Id=1},
+new Person {  FirstName="李四",Id=2}
+};
+        private static int _id = 2;
         public Person GetEntityByid(int id)
         {
             return _list.FirstOrDefault(p => p.Id == id);
@@ -48,6 +51,15 @@ namespace Dao.Imp
             }
             if (flag) return entity;
             else return null;
+        }
+
+        public bool Modifies(List<Person> persons)
+        {
+            foreach (var item in persons)
+            {
+                Modify(item);
+            }
+            return true;
         }
     }
 }
