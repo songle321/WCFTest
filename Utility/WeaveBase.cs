@@ -6,7 +6,7 @@ using System.Web;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace MyServiceTest.Code
+namespace Utility
 {
     public class WeaveBase : IAspect
     {

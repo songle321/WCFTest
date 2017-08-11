@@ -6,10 +6,10 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyServiceTest.Code
+namespace Service
 {
     [ServiceContract]
-    interface IPersionService
+    interface IPersonService
     {
         [OperationContract]
         List<Person> List();

@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.ServiceModel;
-using System.Web;
 
 namespace Utility
 {
@@ -40,7 +39,7 @@ namespace Utility
 
             var objType = _Method.DeclaringType;
             var assemblyName = objType.Assembly.GetName();
-            if (!assemblyName.Name.StartsWith("MyServiceTest", StringComparison.OrdinalIgnoreCase))
+            if (!assemblyName.Name.StartsWith("Service", StringComparison.OrdinalIgnoreCase))
             {
                 return false;
             }

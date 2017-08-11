@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 
-namespace MyServiceTest.Code
+namespace Utilitye
 {
     public interface IWeaveCondition
     {

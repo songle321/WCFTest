@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="MyServiceTest.Code.PersionService,MyServiceTest" Factory="MyServiceTest.Code.MyServiceHostFactory" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Service.PersonService,Service" Factory="MyServiceTest.Code.MyServiceHostFactory" %>

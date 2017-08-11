@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Model;
 using Biz.Interf;
 
-namespace MyServiceTest.Code
+namespace Service
 {
-    public class PersionService : IPersionService
+    public class PersonService : IPersonService
     {
         private IPersonBiz _biz;
-        public PersionService(IPersonBiz biz)
+        public PersonService(IPersonBiz biz)
         {
             this._biz = biz;
         }
